@@ -31,8 +31,10 @@ class ViewController2: UIViewController {
     }
     
     func continue2(){
-        if(slider.value == 5 && stepper.value == 5){
+        if(Int(slider.value) == 5 && stepper.value == 5){
             button2.isEnabled = true
+        }else{
+            button2.isEnabled = false
         }
     }
     

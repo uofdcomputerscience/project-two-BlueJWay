@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ynN-p9-Vrl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wvg-C0-blj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,6 @@
         <!--Navigation Controller-->
         <scene sceneID="nvK-vL-9wF">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TJe-u9-lec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="wvg-C0-blj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JIm-L7-aar">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -20,10 +19,11 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="DE6-ls-wvj"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJe-u9-lec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-694" y="137"/>
         </scene>
-        <!--View Controller-->
+        <!--One-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Project_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -110,7 +110,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="86v-d1-zk5">
+                    <navigationItem key="navigationItem" title="One" id="86v-d1-zk5">
                         <connections>
                             <outlet property="titleView" destination="8bC-Xf-vdC" id="pJk-Vi-quL"/>
                         </connections>
@@ -188,7 +188,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gze-Eh-cxc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vw8-kz-KOf"/>
+                    <navigationItem key="navigationItem" title="Two" id="vw8-kz-KOf"/>
                     <connections>
                         <outlet property="button2" destination="sdq-Z6-xaE" id="MQd-MQ-3hf"/>
                         <outlet property="slider" destination="dVV-4F-HfQ" id="jhT-t9-q8F"/>
@@ -203,7 +203,7 @@
             </objects>
             <point key="canvasLocation" x="882.60869565217399" y="136.60714285714286"/>
         </scene>
-        <!--View Controller3-->
+        <!--Three-->
         <scene sceneID="sk3-T5-7cf">
             <objects>
                 <viewController id="SVi-he-cPU" customClass="ViewController3" customModule="Project_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -255,7 +255,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="AEM-Sh-gbz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="UyO-CJ-ov3"/>
+                    <navigationItem key="navigationItem" title="Three" id="UyO-CJ-ov3"/>
                     <connections>
                         <outlet property="button3" destination="5B5-G9-2fO" id="HRj-j6-mzR"/>
                         <outlet property="christmas" destination="oHb-7Y-5eE" id="jXI-fY-THs"/>
@@ -269,7 +269,7 @@
             </objects>
             <point key="canvasLocation" x="1614.4927536231885" y="136.60714285714286"/>
         </scene>
-        <!--View Controller4-->
+        <!--Four-->
         <scene sceneID="ic3-AF-RKz">
             <objects>
                 <viewController id="ynN-p9-Vrl" customClass="ViewController4" customModule="Project_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -288,19 +288,36 @@
                                 <rect key="frame" x="0.0" y="200" width="414" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbI-OG-5la">
+                                <rect key="frame" x="187" y="618" width="41" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Finish"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C5k-9b-eZo">
+                                <rect key="frame" x="104" y="424" width="207" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="isCapital:" destination="ynN-p9-Vrl" eventType="editingDidEnd" id="wVW-lW-Dgn"/>
+                                    <action selector="textFieldEditingDidChange:" destination="ynN-p9-Vrl" eventType="editingDidEnd" id="5DH-oa-IT4"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="zed-dk-poi"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Agu-Zs-OuJ"/>
+                    <navigationItem key="navigationItem" title="Four" id="Agu-Zs-OuJ"/>
                     <connections>
+                        <outlet property="capitalField" destination="C5k-9b-eZo" id="TlL-EP-Iak"/>
+                        <outlet property="finishButton" destination="qbI-OG-5la" id="jZC-vc-uFR"/>
                         <outlet property="statePicker" destination="X4g-Uy-3Ph" id="66q-9N-c7Z"/>
                         <outlet property="title4" destination="Agu-Zs-OuJ" id="hGW-XN-ats"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hk-Y0-yoX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2340.5797101449275" y="135.9375"/>
+            <point key="canvasLocation" x="2339.130434782609" y="135.9375"/>
         </scene>
     </scenes>
 </document>

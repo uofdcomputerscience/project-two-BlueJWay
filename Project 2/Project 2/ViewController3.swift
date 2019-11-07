@@ -27,6 +27,11 @@ class ViewController3: UIViewController {
             merry.isEnabled = true
             christmas.isEnabled = true
             spinner.stopAnimating()
+        }else{
+            spinner.startAnimating()
+            merry.isEnabled = false
+            christmas.isEnabled = false
+            button3.isEnabled = false
         }
     }
 
