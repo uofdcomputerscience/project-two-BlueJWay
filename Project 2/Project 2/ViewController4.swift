@@ -9,6 +9,19 @@
 import UIKit
 
 class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
+    
+    struct stateThing{
+        var state: String
+        var capital: String
+        init(state: String, capital: String){
+            self.state = state
+            self.capital = capital
+        }
+        
+    }
+    
+    let states = [stateThing(state: "Alabama", capital: "Montgomery"), stateThing(state: "Alaska", capital: "Juneau"), stateThing(state: "Arizona", capital: "Phoenix"), stateThing(state: "Arkansas", capital: "Little Rock"), stateThing(state: "California", capital: "Sacramento"), stateThing(state: "Colorado", capital: "Denver"), stateThing(state: "Connecticut", capital: "Hartford"), stateThing(state: "Delaware", capital: "Dover"), stateThing(state: "Florida", capital: "Tallahassee"), stateThing(state: "Georgia", capital: "Atlanta"), stateThing(state: "Hawaii", capital: "Honolulu"), stateThing(state: "Iowa", capital: "Boise"), stateThing(state: "Idaho", capital: "Springfield"), stateThing(state: "Illinois", capital: "Indianapolis"), stateThing(state: "Indiana", capital: "Des Moines"), stateThing(state: "Kansas", capital: "Topeka"), stateThing(state: "Kentucky", capital: "Frankfort"), stateThing(state: "Louisiana", capital: "Baton Rouge"), stateThing(state: "Massachusetts", capital: "Augusta"), stateThing(state: "Maryland", capital: "Annapolis"), stateThing(state: "Maine", capital: "Boston"), stateThing(state: "Michigan", capital: "Lansing"), stateThing(state: "Minnesota", capital: "St. Paul"), stateThing(state: "Missouri", capital: "Jackson"), stateThing(state: "Mississippi", capital: "Jefferson City"), stateThing(state: "Montana", capital: "Helena"), stateThing(state: "North Carolina", capital: "Lincoln"), stateThing(state: "North Dakota", capital: "Carson City"), stateThing(state: "Nebraska", capital: "Concord"), stateThing(state: "New Hampshire", capital: "Trenton"), stateThing(state: "New Jersey", capital: "Santa Fe"), stateThing(state: "New Mexico", capital: "Albany"), stateThing(state: "Nevada", capital: "Raleigh"), stateThing(state: "New York",capital: "Bismarck"), stateThing(state: "Ohio", capital: "Columbus"), stateThing(state: "Oklahoma", capital: "Oklahoma City"), stateThing(state: "Oregon", capital: "Salem"), stateThing(state: "Pennsylvania", capital: "Harrisburg"), stateThing(state: "Rhode Island", capital: "Providence"), stateThing(state: "South Carolina", capital: "Columbia"), stateThing(state: "South Dakota", capital: "Pierre"), stateThing(state: "Tennessee", capital: "Nashville"), stateThing(state: "Texas", capital: "Austin"), stateThing(state: "Utah",capital: "Salt Lake City"), stateThing(state: "Virginia", capital: "Montpelier"), stateThing(state: "Vermont", capital: "Richmond"), stateThing(state: "Washington", capital: "Olympia"), stateThing(state: "Wisconsin", capital: "Charleston"), stateThing(state: "West Virginia", capital: "Madison"), stateThing(state: "Wyoming", capital: "Cheyenne")]
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -17,14 +30,14 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         numberOfRowsInComponent component: Int) -> Int {
 
             // Row count: rows equals array length.
-            return stateData.count
+            return states.count
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int,
         forComponent component: Int) -> String? {
 
             // Return a string from the array for this row.
-            return stateData[row]
+        return states[row].state
     }
     
     
@@ -35,7 +48,7 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet var capitalField: UITextField!
     @IBOutlet var finishButton: UIButton!
     @IBAction func isCapital(_ sender: UITextField){
-        if(capitalField.text == stateCapitals[statePicker.selectedRow(inComponent: 0)] && capitalField.isEditing == false){
+        if(textFieldShouldBeginEditing(capitalField) && capitalField.text == states[statePicker.selectedRow(inComponent: 0)].capital && capitalField.isEditing == false){
             finishButton.isEnabled = true
         }else{
             finishButton.isEnabled = false
@@ -43,62 +56,13 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     @IBAction func textFieldEditingDidChange(_ sender: UITextField) {
-        
+        if(textFieldShouldBeginEditing(capitalField) && capitalField.text == states[statePicker.selectedRow(inComponent: 0)].capital && capitalField.isEditing == false){
+            finishButton.isEnabled = true
+        }else{
+            finishButton.isEnabled = false
+        }
     }
     
-    
-    let stateData: [String] = ["Alabama", "Alaska",
-    "Arkansas",
-    "Arizona",
-    "California",
-    "Colorado",
-    "Connecticut",
-    "Delaware",
-    "Florida",
-    "Georgia",
-    "Hawaii",
-    "Iowa",
-    "Idaho",
-    "Illinois",
-    "Indiana",
-    "Kansas",
-    "Kentucky",
-    "Louisiana",
-    "Massachusetts",
-    "Maryland",
-    "Maine",
-    "Michigan",
-    "Minnesota",
-    "Missouri",
-    "Mississippi",
-    "Montana",
-    "North Carolina",
-    "North Dakota",
-    "Nebraska",
-    "New Hampshire",
-    "New Jersey",
-    "New Mexico",
-    "Nevada",
-    "New York",
-    "Ohio",
-    "Oklahoma",
-    "Oregon",
-    "Pennsylvania",
-    "Rhode Island",
-    "South Carolina",
-    "South Dakota",
-    "Tennessee",
-    "Texas",
-    "Utah",
-    "Virginia",
-    "Virgin Islands",
-    "Vermont",
-    "Washington",
-    "Wisconsin",
-    "West Virginia",
-    "Wyoming"]
-    
-    var stateCapitals = ["Montgomery", "Juneau", "Phoenix", "Little Rock", "Sacramento", "Denver", "Hartford", "Dover", "Tallahassee", "Atlanta", "Honolulu", "Boise", "Springfield", "Indianapolis", "Des Moines", "Topeka", "Frankfort", "Baton Rouge", "Augusta", "Annapolis", "Boston", "Lansing", "St. Paul", "Jackson", "Jefferson City", "Helena", "Lincoln", "Carson City", "Concord", "Trenton", "Santa Fe", "Albany", "Raleigh", "Bismarck", "Columbus", "Oklahoma City", "Salem", "Harrisburg", "Providence", "Columbia", "Pierre", "Nashville", "Austin", "Salt Lake City", "Montpelier", "Richmond", "Olympia", "Charleston", "Madison", "Cheyenne"]
 
 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -114,6 +78,11 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if(textFieldShouldBeginEditing(capitalField) && capitalField.text == states[statePicker.selectedRow(inComponent: 0)].capital && capitalField.isEditing == false){
+            finishButton.isEnabled = true
+        }else{
+            finishButton.isEnabled = false
+        }
         print("Editing is about to end")
         return true
     }
@@ -121,11 +90,12 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("Editing ended")
         textField.backgroundColor = UIColor.white
+        textFieldShouldReturn(capitalField)
         }
 
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            
+        resignFirstResponder()
         return true
     }
     
@@ -148,7 +118,7 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         //capitalField.becomeFirstResponder()
         textFieldShouldEndEditing(capitalField)
         textFieldDidEndEditing(capitalField)
-        
+        textFieldShouldReturn(capitalField)
         
         
         
