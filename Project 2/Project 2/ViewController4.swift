@@ -47,16 +47,10 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     @IBOutlet var statePicker: UIPickerView!
     @IBOutlet var capitalField: UITextField!
     @IBOutlet var finishButton: UIButton!
-    @IBAction func isCapital(_ sender: UITextField){
-        if(textFieldShouldBeginEditing(capitalField) && capitalField.text == states[statePicker.selectedRow(inComponent: 0)].capital && capitalField.isEditing == false){
-            finishButton.isEnabled = true
-        }else{
-            finishButton.isEnabled = false
-        }
-    }
+    
     
     @IBAction func textFieldEditingDidChange(_ sender: UITextField) {
-        if(textFieldShouldBeginEditing(capitalField) && capitalField.text == states[statePicker.selectedRow(inComponent: 0)].capital && capitalField.isEditing == false){
+        if(capitalField.text == states[statePicker.selectedRow(inComponent: 0)].capital){
             finishButton.isEnabled = true
         }else{
             finishButton.isEnabled = false
@@ -64,34 +58,6 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
     }
     
 
-
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("Editing is about to begin")
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.backgroundColor = UIColor.white
-        capitalField.isEnabled = true
-        
-        print("Editing is begun")
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if(textFieldShouldBeginEditing(capitalField) && capitalField.text == states[statePicker.selectedRow(inComponent: 0)].capital && capitalField.isEditing == false){
-            finishButton.isEnabled = true
-        }else{
-            finishButton.isEnabled = false
-        }
-        print("Editing is about to end")
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        print("Editing ended")
-        textField.backgroundColor = UIColor.white
-        textFieldShouldReturn(capitalField)
-        }
 
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -113,12 +79,7 @@ class ViewController4: UIViewController, UIPickerViewDelegate, UIPickerViewDataS
         //self.statePicker.delegate = (self as! UIPickerViewDelegate)
         capitalField.addTarget(self, action: #selector(textFieldEditingDidChange), for: UIControl.Event.editingChanged)
         
-        textFieldShouldBeginEditing(capitalField)
-        textFieldDidBeginEditing(capitalField)
-        //capitalField.becomeFirstResponder()
-        textFieldShouldEndEditing(capitalField)
-        textFieldDidEndEditing(capitalField)
-        textFieldShouldReturn(capitalField)
+        
         
         
         
