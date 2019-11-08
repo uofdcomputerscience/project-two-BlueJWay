@@ -31,7 +31,7 @@ class ViewController2: UIViewController {
     }
     
     func continue2(){
-        if(Int(slider.value) == 5 && stepper.value == 5){
+        if(Int(slider.value) == 17 && stepper.value == 17){
             button2.isEnabled = true
         }else{
             button2.isEnabled = false
@@ -41,9 +41,9 @@ class ViewController2: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         slider.value = 0
-        slider.maximumValue = 10
+        slider.maximumValue = 50
         stepper.value = 0
-        stepper.maximumValue = 10
+        stepper.maximumValue = 50
         button2.isEnabled = false
         title2Label.text = "Two"
         title2.titleView = title2Label

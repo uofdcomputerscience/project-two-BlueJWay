@@ -35,15 +35,16 @@ class ViewController: UIViewController {
         paul.isEnabled = true
         john.isHidden = false
         paul.isHidden = false
-        george.isHidden = true
+        george.isHidden = false
         ringo.isHidden = true
+        george.isEnabled = true
     }
     func georgeAndRingo(){
         john.isHidden = true
         paul.isHidden = true
-        george.isHidden = false
+        george.isHidden = true
         ringo.isHidden = false
-        george.isEnabled = true
+        george.isEnabled = false
         ringo.isEnabled = true
     }
     @IBAction func johnChange(_ sender: UISwitch){
@@ -74,7 +75,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         button1.isEnabled = false
-        george.isHidden = true
         ringo.isHidden = true
         john.setOn(false, animated: true)
         paul.setOn(false, animated: true)
